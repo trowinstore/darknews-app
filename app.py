@@ -34,6 +34,7 @@ if "noticias" in st.session_state:
                     #model="gemini-1.5-flash", 
                     #contents=f"Gere um roteiro narrado sobre: {escolha}
                 response = client.models.generate_content(model="gemini-1.5-flash-002", contents=prompt)
+                contents=f"Gere um roteiro narrado sobre: {escolha}
                 "
                 )
                 roteiro = response.text
@@ -47,4 +48,5 @@ if "noticias" in st.session_state:
                     st.audio(tmp.name)
             except Exception as e:
                 st.error(f"Erro: {e}")
+
 
