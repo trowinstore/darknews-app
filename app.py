@@ -30,9 +30,11 @@ if "noticias" in st.session_state:
         else:
             try:
                 client = genai.Client(api_key=api_key)
-                response = client.models.generate_content(
-                    model="gemini-1.5-flash", 
-                    contents=f"Gere um roteiro narrado sobre: {escolha}"
+                #response = client.models.generate_content(
+                    #model="gemini-1.5-flash", 
+                    #contents=f"Gere um roteiro narrado sobre: {escolha}
+                response = client.models.generate_content(model="gemini-1.5-flash-002", contents=prompt)
+                "
                 )
                 roteiro = response.text
                 st.write(roteiro)
@@ -45,3 +47,4 @@ if "noticias" in st.session_state:
                     st.audio(tmp.name)
             except Exception as e:
                 st.error(f"Erro: {e}")
+
